@@ -3,64 +3,86 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainFragment">
+    tools:context=".ui.main.MainFragment">
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/top_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:src="@drawable/image_boy_in_blue"
-        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/login_screen_title"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/login_screen_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="32dp"
-        android:text="TextView"
+        android:text="Login"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:textAllCaps="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/top_image" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/login_container"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="32dp"
+        app:helperTextEnabled="true"
+        app:helperText="incorrect username"
+        app:helperTextTextColor="@color/red_error"
+        app:startIconDrawable="@drawable/login_icon"
+        app:startIconTint="@color/grey_hint_color"
+        app:hintTextColor="@color/grey_hint_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/login_screen_title">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/login_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:hint="login" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/password_container"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="11dp"
         android:layout_marginEnd="32dp"
+        app:helperTextEnabled="true"
+        app:helperText="incorrect password"
+        app:helperTextTextColor="@color/red_error"
+        app:startIconDrawable="@drawable/password_icon"
+        app:startIconTint="@color/grey_hint_color"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/grey_hint_color"
+        app:hintTextColor="@color/grey_hint_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+        app:layout_constraintTop_toBottomOf="@+id/login_container">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:hint="password" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -70,9 +92,12 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="32dp"
-        android:text="Button"
+        android:text="Login"
+        android:textSize="18dp"
+        android:drawableEnd="@drawable/next_button_icon"
+        android:background="@drawable/button_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/password_container" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

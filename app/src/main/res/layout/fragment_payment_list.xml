@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey_light_background"
-    tools:context=".PaymentListFragment">
+    android:background="@color/white"
+    tools:context=".ui.paymentlist.PaymentListFragment">
 
 
     <ImageView
@@ -38,16 +38,23 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
-        android:background="@drawable/white_rounded_background"
+        android:background="@drawable/grey_rounded_shape_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/back_button">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
+            android:layout_margin="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+
+        </ScrollView>
 
     </LinearLayout>
 

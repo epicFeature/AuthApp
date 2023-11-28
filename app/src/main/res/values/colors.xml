@@ -7,12 +7,12 @@
     <color name="grey_light_background">#E5E5E5</color>
 
     <!--button-->
-    <color name="blue_button_enabled">#0B6EFE</color>
-    <color name="blue_button_unenabled">#4D0B6EFE</color>
+    <color name="blue_button_enabled">#6C63FF</color>
+    <color name="blue_button_unenabled">#4D6C63FF</color>
 
     <!--edit text-->
     <color name="grey_hint_color">#635C5C</color>
     <color name="grey_edit_text_border">#887E7E</color>
-    <color name="red_error">#DA7676</color>
+    <color name="red_error">#F84848</color>
 
 </resources>

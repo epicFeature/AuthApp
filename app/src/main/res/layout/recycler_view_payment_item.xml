@@ -3,13 +3,52 @@
     android:orientation="horizontal"
     android:layout_margin="16dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="wrap_content"
+    android:background="@drawable/grey_rounded_shape_background">
 
     <TextView
-        android:id="@+id/temp_text"
+        android:id="@+id/payment_name"
+        android:layout_width="140dp"
+        android:layout_height="match_parent"
+        android:text="Test Payment 0"
+        android:textSize="16sp"
+        android:gravity="center_vertical"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/amount"
+        android:layout_width="120dp"
+        android:layout_height="match_parent"
+        android:text="100000000"
+        android:textSize="16sp"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:background="@drawable/grey_shape_background"/>
+
+    <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="Тут будут данные таблицы" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/created_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="28.12.2023"
+            android:textSize="16sp"
+            android:gravity="center_vertical"
+            android:padding="8dp"/>
+
+        <TextView
+            android:id="@+id/created_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="14:20"
+            android:textSize="16sp"
+            android:gravity="center_vertical"
+            android:padding="8dp"/>
+
+    </LinearLayout>
+
 </LinearLayout>
