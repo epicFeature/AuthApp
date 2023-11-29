@@ -14,7 +14,7 @@ class AuthRepository (context:Context) {
     private var editor = prefs.edit()
 
     fun saveToken(text: String) {
-        editor.putString(TOKEN, "Bearer $text").also { it.apply() }
+        editor.putString(TOKEN, text).apply()
     }
 
     fun getToken()= prefs.getString(TOKEN, null)

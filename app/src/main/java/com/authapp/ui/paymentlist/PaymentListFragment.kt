@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
 import com.authapp.R
 import com.authapp.databinding.FragmentPaymentListBinding
@@ -25,10 +26,13 @@ class PaymentListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.backButton.setOnClickListener {
-            findNavController().navigate(R.id.action_paymentListFragment_to_mainFragment)
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner){
+
         }
     }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()
