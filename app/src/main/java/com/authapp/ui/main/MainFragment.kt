@@ -166,7 +166,7 @@ class MainFragment : Fragment() {
             true -> {
                 binding.loginContainer.helperText = "Write your login"
             }
-            false -> binding.loginContainer.helperText = "Wrong login"
+            false -> binding.loginContainer.helperText = "Incorrect login"
         }
     }
 
@@ -175,7 +175,7 @@ class MainFragment : Fragment() {
             true -> {
                 binding.passwordContainer.helperText = "Write your password"
             }
-            false -> binding.passwordContainer.helperText = "Wrong password"
+            false -> binding.passwordContainer.helperText = "Incorrect password"
 
         }
     }
