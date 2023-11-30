@@ -4,12 +4,11 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.authapp.R
 import com.authapp.api.auth.AuthInfo
@@ -17,13 +16,10 @@ import com.authapp.api.auth.AuthProfileData
 import com.authapp.api.auth.AuthRepository
 import com.authapp.api.auth.AuthService
 import com.authapp.databinding.FragmentMainBinding
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlin.math.log
 
 
 class MainFragment : Fragment() {
@@ -61,15 +57,12 @@ class MainFragment : Fragment() {
     private fun loginInputProcessing() {
         binding.loginEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                binding.loginContainer.isErrorEnabled = false
                 binding.logInButton.isEnabled = false
                 binding.loginContainer.helperText = ""
             }
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 loginInputValidation()
             }
-
             override fun afterTextChanged(s: Editable?) {
                 logInButtonEnabling()
             }
@@ -86,7 +79,6 @@ class MainFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
-
             false -> {
                 binding.loginContainer.helperText = ""
             }
@@ -96,7 +88,6 @@ class MainFragment : Fragment() {
     private fun passwordInputProcessing() {
         binding.passwordEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                binding.passwordContainer.isErrorEnabled = true
                 binding.logInButton.isEnabled = false
                 binding.passwordContainer.helperText = ""
             }
@@ -137,14 +128,15 @@ class MainFragment : Fragment() {
     }
 
     @OptIn(DelicateCoroutinesApi::class)
-    private fun makeApiCall(login: String, password: String) = GlobalScope.launch(Dispatchers.Main) {
-        try {
-            val result = authService.getAuthData(AuthProfileData(login, password)).body()!!
-            dataMapping(result)
-        } catch (e: Exception) {
-            Log.e("httpCall", e.message ?: "Unknown Error")
+    private fun makeApiCall(login: String, password: String) =
+        GlobalScope.launch(Dispatchers.Main) {
+            try {
+                val result = authService.getAuthData(AuthProfileData(login, password)).body()!!
+                dataMapping(result)
+            } catch (e: Exception) {
+                Log.e("httpCall", e.message ?: "Unknown Error")
+            }
         }
-    }
 
     private fun dataMapping(result: AuthInfo) {
         if (result.success.toBoolean()) {
@@ -155,9 +147,36 @@ class MainFragment : Fragment() {
         }
     }
 
-    private fun onWrongLoginPassword(){
-        binding.logInButton.isEnabled = false
-        binding.loginContainer.setBoxBackgroundColorResource(R.color.red_error)
-        binding.passwordContainer.setBoxBackgroundColorResource(R.color.red_error)
+    private fun onWrongLoginPassword() {
+        Toast.makeText(
+            this.requireContext(),
+            "You haven't filled login or password.",
+            Toast.LENGTH_SHORT
+        ).show()
+        with(binding) {
+            logInButton.isEnabled = false
+            binding.topImage.setImageResource(R.drawable.image_boy_in_red)
+            loginOutputValidation()
+            passwordOutputValidation()
+        }
+    }
+
+    private fun loginOutputValidation() {
+        return when (binding.loginEditText.text.isNullOrEmpty()) {
+            true -> {
+                binding.loginContainer.helperText = "Write your login"
+            }
+            false -> binding.loginContainer.helperText = "Wrong login"
+        }
+    }
+
+    private fun passwordOutputValidation() {
+        when (binding.passwordEditText.text.isNullOrEmpty()) {
+            true -> {
+                binding.passwordContainer.helperText = "Write your password"
+            }
+            false -> binding.passwordContainer.helperText = "Wrong password"
+
+        }
     }
 }

@@ -1,4 +1,4 @@
-package com.authapp.ui.paymentlist
+package com.authapp.ui.payment
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -36,7 +36,7 @@ class PaymentRecyclerViewAdapter :
 
         with(holder.binding) {
             paymentName.text = payment.title
-            amount.text = amountProcessing(payment.amount) //временная заклепка
+            amount.text = amountProcessing(payment.amount)
             createdDate.text = timeProcessing(payment,isDate = true)
             createdTime.text=timeProcessing(payment,isDate = false)
         }

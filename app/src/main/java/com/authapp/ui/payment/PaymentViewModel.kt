@@ -1,4 +1,4 @@
-package com.authapp.ui.paymentlist
+package com.authapp.ui.payment
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData

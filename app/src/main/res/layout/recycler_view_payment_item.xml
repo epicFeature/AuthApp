@@ -9,7 +9,7 @@
         android:id="@+id/payment_name"
         android:layout_width="140dp"
         android:layout_height="match_parent"
-        android:text="Test Payment 0"
+        android:text="@string/payment_name_example"
         android:textSize="14sp"
         android:gravity="center_vertical"
         android:padding="8dp"/>
@@ -18,7 +18,7 @@
         android:id="@+id/amount"
         android:layout_width="120dp"
         android:layout_height="match_parent"
-        android:text="100000000"
+        android:text="@string/big_number"
         android:textSize="14sp"
         android:gravity="center_vertical"
         android:padding="8dp"
@@ -34,7 +34,7 @@
             android:id="@+id/created_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="28.12.2023"
+            android:text="@string/date_example"
             android:textSize="14sp"
             android:gravity="center_vertical"
             android:padding="8dp"/>
@@ -43,7 +43,7 @@
             android:id="@+id/created_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="14:20"
+            android:text="@string/time_example"
             android:textSize="14sp"
             android:gravity="center_vertical"
             android:padding="8dp"/>

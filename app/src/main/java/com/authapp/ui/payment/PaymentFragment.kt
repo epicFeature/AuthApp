@@ -1,4 +1,4 @@
-package com.authapp.ui.paymentlist
+package com.authapp.ui.payment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -14,9 +14,6 @@ import com.authapp.R
 import com.authapp.api.auth.AuthRepository
 import com.authapp.databinding.FragmentPaymentBinding
 import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 
 class PaymentFragment : Fragment() {
@@ -44,7 +41,6 @@ class PaymentFragment : Fragment() {
             logOut(AuthRepository(this.requireContext().applicationContext))
             findNavController().navigate(R.id.action_paymentListFragment_to_mainFragment)// проверить!!!
         }
-
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
         }
     }
