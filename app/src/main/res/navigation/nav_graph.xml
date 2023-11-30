@@ -16,9 +16,9 @@
     </fragment>
     <fragment
         android:id="@+id/paymentListFragment"
-        android:name="com.authapp.ui.paymentlist.PaymentListFragment"
+        android:name="com.authapp.ui.paymentlist.PaymentFragment"
         android:label="fragment_payment_list"
-        tools:layout="@layout/fragment_payment_list" >
+        tools:layout="@layout/fragment_payment" >
         <action
             android:id="@+id/action_paymentListFragment_to_mainFragment"
             app:destination="@id/mainFragment" />

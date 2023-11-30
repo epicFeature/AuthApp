@@ -8,8 +8,8 @@ import com.authapp.databinding.RecyclerViewPaymentItemBinding
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-class RecyclerViewPaymentAdapter :
-    RecyclerView.Adapter<RecyclerViewPaymentAdapter.PaymentViewHolder>() {
+class PaymentRecyclerViewAdapter :
+    RecyclerView.Adapter<PaymentRecyclerViewAdapter.PaymentViewHolder>() {
 
     private var _data: List<Payment> = emptyList()
     fun setData(data: List<Payment>) {
@@ -33,18 +33,25 @@ class RecyclerViewPaymentAdapter :
         position: Int
     ) {
         val payment = _data[position]
-        val context = holder.itemView.context
 
         with(holder.binding) {
             paymentName.text = payment.title
-            amount.text = payment.amount.toString() //временная заклепка
+            amount.text = amountProcessing(payment.amount) //временная заклепка
             createdDate.text = timeProcessing(payment,isDate = true)
             createdTime.text=timeProcessing(payment,isDate = false)
         }
     }
 
+    private fun amountProcessing(amount:Any?)=
+        when(amount){
+            is String -> amount
+            is Double -> amount.toBigDecimal().toPlainString()
+            else -> ""
+        }
+
+
     private fun timeProcessing(payment: Payment, isDate: Boolean): String {
-        val timeInMillis = payment?.created
+        val timeInMillis = payment.created
         var date = ""
         var time = ""
         if (timeInMillis != null) {

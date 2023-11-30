@@ -17,7 +17,7 @@ class AuthRepository (context:Context) {
         editor.putString(TOKEN, text).apply()
     }
 
-    fun getToken()= prefs.getString(TOKEN, null)
+    fun getToken() = prefs.getString(TOKEN, null)
 
     //проверить верно ли
     fun deleteToken()=prefs.edit().clear().apply()

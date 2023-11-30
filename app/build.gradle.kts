@@ -53,6 +53,9 @@ dependencies {
     implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
+    //coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
+
     //viewModel
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
@@ -66,6 +69,7 @@ dependencies {
 
     //moshi
     implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
+    implementation("com.squareup.moshi:moshi-kotlin:1.15.0")
     implementation("com.squareup.moshi:moshi:1.15.0")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     ksp ("com.squareup.moshi:moshi-kotlin-codegen:1.15.0")
